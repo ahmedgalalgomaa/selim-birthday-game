@@ -1,0 +1,18 @@
+{
+  "name": "selim-birthday-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Super Selim's Power Quest — birthday tap game for kids",
+  "type": "module",
+  "scripts": {
+    "sync-hero": "node scripts/sync-hero.js",
+    "predev": "npm run sync-hero",
+    "prebuild": "npm run sync-hero",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.2.2"
+  }
+}
