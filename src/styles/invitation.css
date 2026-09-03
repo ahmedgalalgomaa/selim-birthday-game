@@ -535,6 +535,19 @@
   border-radius: 10px;
 }
 
+.invite__detail-card--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.invite__detail-card--link:hover,
+.invite__detail-card--link:focus-visible {
+  border-color: rgba(255, 215, 0, 0.7);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+}
+
 .invite__detail-icon {
   font-size: 1.1rem;
   line-height: 1;

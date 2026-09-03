@@ -1,4 +1,4 @@
-import { INVITATION_ASSETS } from '../../config.js';
+import { INVITATION_ASSETS } from "../../config.js";
 
 export function getFinaleBackdropMarkup() {
   return `
@@ -50,16 +50,21 @@ export function getFinaleInviteMarkup() {
           <span class="invite__detail-icon" aria-hidden="true">📅</span>
           <div>
             <p class="invite__detail-label">Date: September 11th</p>
-            <p class="invite__detail-sub">Time: 2:00 PM</p>
+            <p class="invite__detail-sub">Time: 3:00 PM</p>
           </div>
         </div>
-        <div class="invite__detail-card">
+        <a
+          class="invite__detail-card invite__detail-card--link"
+          href="https://www.google.com/maps/search/?api=1&query=30.01921090521329,31.29538437150171"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span class="invite__detail-icon" aria-hidden="true">📍</span>
           <div>
             <p class="invite__detail-label">Location:</p>
             <p class="invite__detail-sub">Levana Uptown Cairo</p>
           </div>
-        </div>
+        </a>
       </div>
 
       <div class="invite__dress">
@@ -72,5 +77,5 @@ export function getFinaleInviteMarkup() {
 }
 
 export function bindInvitationReplay(screen, onReplay) {
-  screen.querySelector('.invite__replay')?.addEventListener('click', onReplay);
+  screen.querySelector(".invite__replay")?.addEventListener("click", onReplay);
 }
