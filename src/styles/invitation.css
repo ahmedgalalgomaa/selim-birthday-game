@@ -553,6 +553,46 @@
   line-height: 1;
 }
 
+.invite__detail-icon--pin {
+  position: relative;
+  display: inline-block;
+  color: #ff2d2d;
+  filter: drop-shadow(0 0 6px #ff3b3b) drop-shadow(0 0 10px #ffd700);
+  animation: invite-pin-glow 1.15s ease-in-out infinite;
+}
+
+.invite__detail-icon--pin::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 60, 60, 0.85);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.55);
+  pointer-events: none;
+  animation: invite-pin-ring 1.4s ease-out infinite;
+}
+
+@keyframes invite-pin-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px #ff2d2d) drop-shadow(0 0 8px #ffd700);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #ff1a1a) drop-shadow(0 0 14px #ffd700);
+  }
+}
+
+@keyframes invite-pin-ring {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
 .invite__detail-label {
   margin: 0;
   font-family: var(--font-display);

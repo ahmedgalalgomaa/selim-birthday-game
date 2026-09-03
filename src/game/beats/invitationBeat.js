@@ -59,7 +59,7 @@ export function getFinaleInviteMarkup() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span class="invite__detail-icon" aria-hidden="true">📍</span>
+          <span class="invite__detail-icon invite__detail-icon--pin" aria-hidden="true">📍</span>
           <div>
             <p class="invite__detail-label">Location:</p>
             <p class="invite__detail-sub">Levana Uptown Cairo</p>
