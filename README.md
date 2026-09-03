@@ -42,7 +42,7 @@ Guests scan → game loads → tap to play. No app install needed.
 - [ ] Scan QR on iPhone (Safari) and Android (Chrome)
 - [ ] Tap targets feel easy for a 6-year-old
 - [ ] Sound works; mute button works
-- [ ] Full playthrough: splash → thunder → speed → transform → victory
+- [ ] Full playthrough: splash → thunder → speed → transform (invitation reveal)
 - [ ] "Play Again" restarts correctly
 - [ ] Test on venue Wi‑Fi and mobile data
 
@@ -51,8 +51,7 @@ Guests scan → game loads → tap to play. No app install needed.
 1. **Splash** — Tap to Start (+ mute toggle)
 2. **Thunder Power** — Catch 8 lightning bolts
 3. **Speed Power** — Catch 8 speed streaks
-4. **Transform** — Super Selim power-up animation
-5. **Victory** — "Happy Birthday Selim!" + confetti + Play Again
+4. **Transform** — Super Selim finale + birthday invitation reveal
 
 Everyone wins — no fail state.
 

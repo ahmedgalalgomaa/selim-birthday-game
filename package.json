@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "sync-hero": "node scripts/sync-hero.js",
+    "optimize-hero-gif": "node scripts/optimize-hero-gif.js",
     "predev": "npm run sync-hero",
     "prebuild": "npm run sync-hero",
     "dev": "vite",

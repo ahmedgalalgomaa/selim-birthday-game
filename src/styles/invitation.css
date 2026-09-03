@@ -1,0 +1,596 @@
+.screen--invitation {
+  padding: calc(8px + var(--safe-top)) 0 calc(12px + var(--safe-bottom));
+  background: #050818;
+  overflow: hidden;
+}
+
+.screen--finale .invite__header,
+.screen--finale .invite__heroes {
+  position: relative;
+  z-index: 0;
+}
+
+.screen--finale .invite__sky {
+  position: absolute;
+  inset: 0 0 30%;
+}
+
+.screen--finale .invite__header {
+  padding-top: 4px;
+  margin-bottom: 0;
+  pointer-events: none;
+}
+
+.screen--finale .invite__burst {
+  pointer-events: none;
+}
+
+/* Left column: Captain + POW | Right column: Iron Man + ZAP */
+.screen--finale .invite__hero--captain {
+  width: 58px;
+  height: 58px;
+  top: 10%;
+  left: 0;
+  right: auto;
+  animation: invite-captain 6s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.screen--finale .invite__hero--ironman {
+  width: 54px;
+  height: 54px;
+  top: 10%;
+  right: 0;
+  left: auto;
+  animation: invite-float-b 2.8s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.screen--finale .invite__hero--thor {
+  width: 46px;
+  height: 46px;
+  top: 72%;
+  left: 0;
+  right: auto;
+  animation: invite-float-c 3.5s ease-in-out infinite, invite-tilt 4s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.screen--finale .invite__hero--flash {
+  width: 46px;
+  height: 46px;
+  top: 72%;
+  right: 0;
+  left: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+  animation: invite-float-c 3.5s ease-in-out infinite, invite-tilt 4s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+.screen--finale .invite__pow {
+  top: 36%;
+  left: 2%;
+  right: auto;
+  animation: invite-bubble 2s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.screen--finale .invite__zap {
+  top: 36%;
+  right: 2%;
+  left: auto;
+  animation: invite-bubble 2s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.screen--finale .invite__nameplate {
+  margin-bottom: 8px;
+  padding: 10px 12px 8px;
+}
+
+.screen--finale .invite__details {
+  margin-bottom: 8px;
+}
+
+.screen--finale .invite__dress {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+}
+
+.screen--finale .invite__replay {
+  display: block;
+  margin: 0 auto;
+  animation: none;
+  font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+  padding: 0.75rem 1.75rem;
+}
+
+.invite__scroll {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  padding: 0 12px 24px;
+}
+
+.invite__sky {
+  position: absolute;
+  inset: 0 0 35%;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.2), transparent 45%),
+    linear-gradient(180deg, #0a1a4a 0%, #1a0a2e 55%, #0d3d6b 100%);
+  z-index: 0;
+}
+
+.invite__speed-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(
+    from 0deg at 50% 20%,
+    transparent 0deg 8deg,
+    rgba(255, 50, 50, 0.08) 8deg 10deg,
+    transparent 10deg 18deg,
+    rgba(0, 212, 255, 0.06) 18deg 20deg
+  );
+  animation: invite-rays 12s linear infinite;
+}
+
+.invite__city {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background:
+    linear-gradient(transparent, rgba(0, 0, 0, 0.5)),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 18px,
+      rgba(20, 30, 60, 0.9) 18px,
+      rgba(20, 30, 60, 0.9) 36px
+    );
+  mask-image: linear-gradient(180deg, transparent, black 40%);
+}
+
+@keyframes invite-rays {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.invite__header,
+.invite__heroes,
+.invite__center,
+.invite__nameplate,
+.invite__pool,
+.invite__details,
+.invite__dress,
+.invite__replay {
+  position: relative;
+  z-index: 2;
+}
+
+.invite__header {
+  text-align: center;
+  padding-top: 8px;
+  margin-bottom: 4px;
+}
+
+.invite__burst {
+  display: inline-block;
+  padding: 10px 22px 14px;
+  background: #ffd700;
+  clip-path: polygon(
+    8% 0%,
+    92% 0%,
+    100% 25%,
+    95% 55%,
+    100% 100%,
+    50% 88%,
+    0% 100%,
+    5% 55%,
+    0% 25%
+  );
+  filter: drop-shadow(0 4px 0 #b8860b);
+  animation: invite-burst-pop 2.5s ease-in-out infinite;
+}
+
+.invite__avengers {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  color: #c41e3a;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-shadow: 2px 2px 0 #fff, 3px 3px 0 rgba(0, 0, 0, 0.3);
+  font-style: italic;
+}
+
+.invite__assemble {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 5vw, 1.5rem);
+  color: #fff;
+  letter-spacing: 0.12em;
+  text-shadow: 2px 2px 0 #c41e3a;
+}
+
+@keyframes invite-burst-pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.invite__heroes {
+  position: relative;
+  height: 110px;
+  margin-bottom: -10px;
+}
+
+.invite__hero {
+  position: absolute;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+}
+
+.invite__hero--captain {
+  width: 72px;
+  height: 72px;
+  top: 0;
+  left: 2%;
+  animation: invite-captain 6s ease-in-out infinite;
+}
+
+.invite__hero--ironman {
+  width: 68px;
+  height: 68px;
+  top: 4px;
+  right: 2%;
+  animation: invite-float-b 2.8s ease-in-out infinite;
+}
+
+.invite__hero--thor {
+  width: 64px;
+  height: 64px;
+  top: 48px;
+  left: 18%;
+  animation: invite-float-c 3.5s ease-in-out infinite, invite-tilt 4s ease-in-out infinite;
+}
+
+.invite__pow,
+.invite__zap {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: #ffd700;
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0 #111;
+  animation: invite-bubble 2s ease-in-out infinite;
+}
+
+.invite__pow {
+  top: 36px;
+  left: 28%;
+  animation-delay: 0.2s;
+}
+
+.invite__zap {
+  top: 30px;
+  right: 26%;
+  animation-delay: 0.8s;
+}
+
+@keyframes invite-captain {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+@keyframes invite-thor-bottom {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-8px) rotate(6deg);
+  }
+}
+
+@keyframes invite-float-a {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes invite-float-b {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes invite-float-c {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes invite-tilt {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes invite-bubble {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.invite__center {
+  position: relative;
+  height: min(42vw, 180px);
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invite__number {
+  width: min(38vw, 150px);
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 0 20px rgba(0, 180, 255, 0.5));
+  animation: invite-number-pulse 2.2s ease-in-out infinite;
+}
+
+.invite__selim {
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  width: min(34vw, 130px);
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.55));
+  animation: hero-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes invite-number-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(0, 180, 255, 0.5));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.85));
+  }
+}
+
+.invite__nameplate {
+  text-align: center;
+  margin: 0 auto 12px;
+  padding: 14px 16px 12px;
+  max-width: 340px;
+  background: linear-gradient(180deg, rgba(25, 35, 70, 0.95), rgba(10, 15, 35, 0.98));
+  border: 3px solid rgba(0, 212, 255, 0.5);
+  border-radius: 12px;
+  box-shadow:
+    0 0 24px rgba(0, 212, 255, 0.25),
+    inset 0 0 20px rgba(0, 100, 200, 0.15);
+}
+
+.invite__name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  margin: 0;
+  color: #fff;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.invite__turning {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  margin: 4px 0 10px;
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+
+.invite__turning span {
+  color: #ffd700;
+  font-size: 1.3em;
+}
+
+.invite__mission {
+  margin: 0;
+  padding: 8px 10px;
+  background: rgba(0, 120, 200, 0.35);
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 3.2vw, 0.95rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b8e8ff;
+}
+
+.invite__pool {
+  position: relative;
+  height: 70px;
+  margin: 0 -12px 12px;
+  background: linear-gradient(180deg, #0d5ea8, #00a8e8 40%, #5fd4ff);
+  overflow: hidden;
+}
+
+.invite__wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+}
+
+.invite__wave--1 {
+  top: 8px;
+  animation: invite-wave 3s ease-in-out infinite;
+}
+
+.invite__wave--2 {
+  top: 28px;
+  opacity: 0.5;
+  animation: invite-wave 4s ease-in-out infinite reverse;
+}
+
+@keyframes invite-wave {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+}
+
+.invite__float-ring,
+.invite__float-ball {
+  position: absolute;
+  border-radius: 50%;
+  animation: invite-float-a 3s ease-in-out infinite;
+}
+
+.invite__float-ring {
+  width: 36px;
+  height: 36px;
+  left: 12%;
+  bottom: 12px;
+  border: 5px solid #e63946;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.invite__float-ball {
+  width: 32px;
+  height: 32px;
+  right: 14%;
+  bottom: 16px;
+  background: conic-gradient(#e63946 0 25%, #ffd700 25% 50%, #00d4ff 50% 75%, #7b2ff7 75% 100%);
+  animation-name: invite-float-b;
+}
+
+.invite__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.invite__detail-card {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px;
+  background: rgba(15, 25, 55, 0.92);
+  border: 2px solid rgba(0, 212, 255, 0.35);
+  border-radius: 10px;
+}
+
+.invite__detail-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.invite__detail-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 2.8vw, 0.78rem);
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.invite__detail-sub {
+  margin: 2px 0 0;
+  font-size: clamp(0.6rem, 2.5vw, 0.72rem);
+  color: #9aa8d4;
+  line-height: 1.25;
+}
+
+.invite__dress {
+  text-align: center;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 3vw, 0.85rem);
+  letter-spacing: 0.04em;
+  color: #1a1208;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffd700,
+    #ffd700 12px,
+    #ff8c00 12px,
+    #ff8c00 24px
+  );
+  border: 2px solid #111;
+  box-shadow: 3px 3px 0 #111;
+}
+
+.invite__replay {
+  display: block;
+  margin: 0 auto;
+  animation: none;
+}
+
+@media (max-height: 700px) {
+  .invite__heroes {
+    height: 90px;
+  }
+
+  .invite__center {
+    height: min(36vw, 150px);
+  }
+
+  .invite__pool {
+    height: 56px;
+  }
+}

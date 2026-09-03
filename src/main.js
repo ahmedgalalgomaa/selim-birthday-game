@@ -1,17 +1,23 @@
 import './styles/main.css';
 import './styles/effects.css';
+import './styles/invitation.css';
+import { SKIP_QUESTS } from './config.js';
 import { renderSplash } from './ui/splash.js';
 import { runThorBeat } from './game/beats/thorBeat.js';
 import { runFlashBeat } from './game/beats/flashBeat.js';
 import { runTransformBeat } from './game/beats/transformBeat.js';
-import { runVictoryBeat } from './game/beats/victoryBeat.js';
 import { stopConfetti } from './confetti.js';
 
 const app = document.getElementById('app');
 
-const flow = ['splash', 'thor', 'flash', 'transform', 'victory'];
+const flow = ['splash', 'thor', 'flash', 'transform'];
+const transformStep = flow.indexOf('transform');
 let step = 0;
 let cleanup = null;
+
+function startStep() {
+  return SKIP_QUESTS ? transformStep : 0;
+}
 
 function goTo(index) {
   if (cleanup) {
@@ -32,14 +38,11 @@ function goTo(index) {
       cleanup = runFlashBeat(app, () => goTo(3));
       break;
     case 'transform':
-      runTransformBeat(app, () => goTo(4));
-      break;
-    case 'victory':
-      runVictoryBeat(app, () => goTo(0));
+      runTransformBeat(app, () => goTo(startStep()));
       break;
     default:
       break;
   }
 }
 
-goTo(0);
+goTo(startStep());

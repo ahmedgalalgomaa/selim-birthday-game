@@ -411,12 +411,204 @@ body {
   }
 }
 
-/* Transform */
 .screen--transform {
-  justify-content: center;
+  justify-content: flex-start;
+  overflow: hidden;
   background:
     radial-gradient(circle at 50% 50%, rgba(123, 47, 247, 0.25), transparent 60%),
     var(--cosmic-navy);
+}
+
+.screen--transform.screen--finale {
+  padding-top: calc(4px + var(--safe-top));
+  padding-bottom: calc(8px + var(--safe-bottom));
+  justify-content: center;
+  overflow: visible;
+}
+
+.finale__scroll {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  padding: 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.finale__stage {
+  position: relative;
+  z-index: 20;
+  isolation: isolate;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: min(82vw, 300px);
+  margin: 0 auto 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.finale__orbit {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.finale__orbit .invite__hero,
+.finale__orbit .invite__pow,
+.finale__orbit .invite__zap {
+  position: absolute;
+}
+
+.finale__orbit .invite__hero--captain {
+  z-index: 2;
+}
+
+.finale__orbit .invite__hero--ironman {
+  z-index: 3;
+}
+
+.finale__orbit .invite__hero--thor {
+  z-index: 4;
+}
+
+.finale__orbit .invite__hero--flash {
+  z-index: 4;
+}
+
+.finale__orbit .invite__pow,
+.finale__orbit .invite__zap {
+  z-index: 5;
+}
+
+.finale__number {
+  position: absolute;
+  width: min(52vw, 200px);
+  height: auto;
+  z-index: 1;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  opacity: 0;
+  filter: drop-shadow(0 0 20px rgba(0, 180, 255, 0.5));
+  pointer-events: none;
+  transition: opacity 0.8s ease 0.2s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+}
+
+.finale--revealed .finale__number {
+  opacity: 0.55;
+  transform: translateX(-50%) scale(1);
+  animation: invite-number-pulse-finale 2.2s ease-in-out 1s infinite;
+}
+
+@keyframes invite-number-pulse-finale {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    filter: drop-shadow(0 0 20px rgba(0, 180, 255, 0.5));
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.85));
+  }
+}
+
+.finale__backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.finale__invite {
+  position: relative;
+  z-index: 5;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.invite-layer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.finale--revealed .invite-layer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.finale--revealed .finale__number.invite-layer {
+  transform: translateX(-50%) scale(1);
+}
+
+.finale--revealed .finale__backdrop {
+  transition-delay: 0.05s;
+}
+
+.finale--revealed .finale__invite {
+  transition-delay: 0.25s;
+}
+
+.screen--finale .transform__content {
+  position: relative;
+  z-index: auto;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  overflow: visible;
+}
+
+.screen--finale .transform__title {
+  font-size: clamp(1.8rem, 8vw, 2.6rem);
+  margin-bottom: 0.25rem;
+}
+
+.screen--finale .transform__subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.screen--finale .transform__hero-wrap {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  width: min(62vw, 220px);
+  height: min(76vw, 270px);
+  margin: 4.25rem auto 0;
+}
+
+.screen--finale .transform__hero {
+  object-fit: contain;
+  background: transparent;
+  position: relative;
+  z-index: 40;
+  overflow: visible;
+}
+
+.screen--finale .transform__ring {
+  z-index: 2;
+}
+
+.screen--finale .transform__particles {
+  z-index: 3;
+}
+
+.screen--finale .transform__burst {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
 }
 
 .transform__content {
